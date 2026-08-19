@@ -1,7 +1,0 @@
-streamlit run Team27_Assignment2_dashboard.py --server.maxUploadSize=2048
-
-(Run this command on the terminal in the folder having the .py file named Team27_Assignment2_dashboard.py)
-
-(Make sure when you upload the CSV files, the names of the file should be same as the ones given in Drive of dataset)
-
-(To get the results of the dataset, it might take around 10 mins after you upload the files and run the pipeline on the Streamlit site)
