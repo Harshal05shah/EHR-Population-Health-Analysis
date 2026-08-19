@@ -3,8 +3,6 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.x-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-
 An end-to-end machine learning pipeline and interactive Streamlit dashboard for classifying chronic medical conditions from **Synthea™ synthetic EHR data** — with temporal distribution shift detection, hyperparameter tuning, and continual learning adaptation.
 
 ---
@@ -132,27 +130,19 @@ The dashboard is organized into four tab groups:
 ## Project Structure
 
 ```
-chronic-condition-classifier/
-│
+EHR-Population-Health-Analysis/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── LICENSE
-│
-├── dashboard.py          ← Single-file Streamlit application (~4,300 lines)
-│
-├── data/
-│   ├── patients.csv
-│   ├── encounters.csv
-│   ├── observations.csv
-│   ├── conditions.csv
-│   ├── medications.csv
-│   ├── allergies.csv
-│   └── procedures.csv    (and optional CSVs)
-│
-└── assets/
-    └── screenshots/      ← Dashboard screenshots
+├── dashboard.py             ← Streamlit application (~4,300 lines, 12 pages)
+└── docs/
+    └── assignment_spec.pdf  ← Original assignment specification
 ```
+
+Input CSVs (`patients.csv`, `encounters.csv`, `observations.csv`, `conditions.csv`,
+`medications.csv`, `allergies.csv`, `procedures.csv`, plus optional files) are not
+committed to the repo — they're supplied at runtime via the dashboard's file
+uploader (see [Dataset Information](#dataset-information)).
 
 ---
 
@@ -160,8 +150,8 @@ chronic-condition-classifier/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/chronic-condition-classifier.git
-cd chronic-condition-classifier
+git clone https://github.com/HarshalShah0508/EHR-Population-Health-Analysis.git
+cd EHR-Population-Health-Analysis
 
 # 2. Create and activate a virtual environment
 python -m venv venv
@@ -215,20 +205,6 @@ Then in the browser:
 - KS-test and PSI analysis identify **lab values and cost features** as the most drifted features over time
 - Continual learning (weighted fine-tuning on D2) recovers a portion of the performance gap for all three model families
 - Isolation Forest flags a small percentage of encounters as anomalous, concentrated in extreme lab value ranges
-
----
-
-## Screenshots
-
-| View | Preview |
-|---|---|
-| Home / Pipeline Overview | `assets/screenshots/home.png` |
-| Class Distribution | `assets/screenshots/data_overview.png` |
-| ROC Curves — All Models | `assets/screenshots/model_performance.png` |
-| Hyperparameter Tuning Grid | `assets/screenshots/hptuning.png` |
-| Temporal Drift (KS-test) | `assets/screenshots/temporal_shift.png` |
-| Continual Learning Results | `assets/screenshots/continual_learning.png` |
-| PCA / t-SNE Projections | `assets/screenshots/feature_representation.png` |
 
 ---
 
